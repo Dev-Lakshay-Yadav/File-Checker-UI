@@ -23,7 +23,8 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`https://file-checker-server.onrender.com/latest`);
+        // const res = await fetch(`https://file-checker-server.onrender.com/latest`);
+        const res = await fetch(import.meta.env.VITE_SERVER_URL);
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
         const json: ApiResponse = await res.json();
         setData(json);
