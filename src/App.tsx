@@ -24,7 +24,9 @@ const App = () => {
     const fetchData = async () => {
       try {
         // const res = await fetch(`https://file-checker-server.onrender.com/latest`);
+        console.log(import.meta.env.VITE_SERVER_URL,"url")
         const res = await fetch(import.meta.env.VITE_SERVER_URL);
+        console.log(res,'asd')
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
         const json: ApiResponse = await res.json();
         setData(json);
